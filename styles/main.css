@@ -61,7 +61,6 @@ html {
 
     display: grid;
     grid-template-rows: .5fr 1fr;
-    gap: 10px;
 }
 
 .result {
@@ -79,13 +78,15 @@ html {
     font-size: 1.3rem;
     font-weight: lighter;
 
+    opacity: 45%;
+
     display: flex;
     align-items: flex-end;
 }
 
 .total {
     font-weight: bolder;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .botones {
