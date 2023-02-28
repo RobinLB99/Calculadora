@@ -1,0 +1,108 @@
+:root {
+    --color1: #fff;
+    --color2: rgb(243, 243, 243);
+    --color3: rgb(224, 224, 224);
+    --color4: rgb(184, 184, 184);
+    --color5: #a8a8a8;
+    --color6: rgb(3, 106, 196);
+    --color7: rgb(4, 115, 206);
+    --color8: #0481e0;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor {
+    background-color: var(--color2);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: var(--color1);
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+    height: 95vh;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.415);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: .3fr 1.35fr repeat(5, 1fr);
+    gap: 10px;
+}
+
+.title {
+    grid-column: -1/1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.resultado {
+    border: 1px solid var(--color4);
+    border-radius: 5px;
+    grid-column: -1/1;
+}
+
+.botones {
+    border: 3px solid transparent;
+    border-radius: 5px;
+    font-size: 1.8rem;
+
+    display: grid;
+    place-content: center;
+}
+
+.botones:hover {
+    background-color: var(--color4);
+    cursor: default;
+}
+
+.botones:active {
+    background-color: var(--color5);
+}
+
+.numero {
+    background-color: var(--color3);
+}
+
+.operador {
+    font-size: 1.5rem;
+    background-color: var(--color2);
+}
+
+.igual {
+    background-color: var(--color6);
+    color: var(--color1);
+}
+
+.igual:hover {
+    background-color: var(--color7);
+}
+
+.igual:active {
+    background-color: var(--color8);
+}
+
+.fas {
+    font-size: 1rem
+}
+
+.fa-backspace {
+    font-size: 1.5rem;
+}
