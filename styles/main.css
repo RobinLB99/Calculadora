@@ -57,6 +57,35 @@ html {
     border: 1px solid var(--color4);
     border-radius: 5px;
     grid-column: -1/1;
+    padding: 0 15px;
+
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+    gap: 10px;
+}
+
+.result {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.result p {
+    width: 100%;
+}
+
+.operacion {
+    font-size: 1.3rem;
+    font-weight: lighter;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.total {
+    font-weight: bolder;
+    font-size: 2.5rem;
 }
 
 .botones {
