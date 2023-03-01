@@ -11,7 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     result.addEventListener('keydown', event => {
         event.preventDefault();
     });
-    
+
+    // Desabilita el teclado virtual en dispositivos mobiles
+    result.addEventListener('touchstart', event => {
+        event.preventDefault();
+    });
+
     result.addEventListener("click", () => {
         bandera = false
     })
