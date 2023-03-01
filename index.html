@@ -16,33 +16,31 @@
         <div class="calculator">
             <p class="title"><i class="fas fa-calculator"></i>Calculadora</p>
             <div class="resultado">
-                <div class="result operacion">
-                    <p id="operation"></p>
-                </div>
-                <div class=" result total">
-                    <p id="total">0</p>
-                </div>
+                <!--
+                    <input type="text" id="operation" class="result operacion" disabled>
+                -->
+                <input type="text" id="result" class="result total" value="">
             </div>
-            <div class="botones operador">(</div>
-            <div class="botones operador">)</div>
-            <div class="botones operador">%</div>
-            <div class="botones operador"><i class="fas fa-backspace"></i></div>
-            <div class="botones numero">7</div>
-            <div class="botones numero">8</div>
-            <div class="botones numero">9</div>
-            <div class="botones operador"><i class="fas fa-divide"></i></div>
-            <div class="botones numero">4</div>
-            <div class="botones numero">5</div>
-            <div class="botones numero">6</div>
-            <div class="botones operador"><i class="fas fa-times"></i></div>
-            <div class="botones numero">1</div>
-            <div class="botones numero">2</div>
-            <div class="botones numero">3</div>
-            <div class="botones operador"><i class="fas fa-minus"></i></div>
-            <div class="botones numero">0</div>
-            <div class="botones numero">,</div>
-            <div class="botones operador igual"><i class="fas fa-equals"></i></div>
-            <div class="botones operador"><i class="fas fa-plus"></i></div>
+            <div class="botones operador" id="(">(</div>
+            <div class="botones operador" id=")">)</div>
+            <div class="botones operador" id="%">%</div>
+            <div class="botones operador" id="removeCaracter"><i class="fas fa-backspace"></i></div>
+            <div class="botones numero" id="7">7</div>
+            <div class="botones numero" id="8">8</div>
+            <div class="botones numero" id="9">9</div>
+            <div class="botones operador" id="/"><i class="fas fa-divide"></i></div>
+            <div class="botones numero" id="4">4</div>
+            <div class="botones numero" id="5">5</div>
+            <div class="botones numero" id="6">6</div>
+            <div class="botones operador" id="*"><i class="fas fa-times"></i></div>
+            <div class="botones numero" id="1">1</div>
+            <div class="botones numero" id="2">2</div>
+            <div class="botones numero" id="3">3</div>
+            <div class="botones operador" id="-"><i class="fas fa-minus"></i></div>
+            <div class="botones numero" id="0">0</div>
+            <div class="botones numero" id=",">,</div>
+            <div class="botones operador igual" id="="><i class="fas fa-equals"></i></div>
+            <div class="botones operador" id="+"><i class="fas fa-plus"></i></div>
         </div>
     </div>
 </body>

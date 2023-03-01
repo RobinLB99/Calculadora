@@ -57,23 +57,23 @@ html {
     border: 1px solid var(--color4);
     border-radius: 5px;
     grid-column: -1/1;
-    padding: 0 15px;
 
     display: grid;
-    grid-template-rows: .5fr 1fr;
+    grid-template-areas: 1fr;
 }
 
 .result {
     width: 100%;
+    padding: 0 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
     display: flex;
     align-items: center;
     text-align: right;
 }
 
-.result p {
-    width: 100%;
-}
-
+/*
 .operacion {
     font-size: 1.3rem;
     font-weight: lighter;
@@ -83,11 +83,26 @@ html {
     display: flex;
     align-items: flex-end;
 }
+*/
 
 .total {
     font-weight: bolder;
-    font-size: 3rem;
+    font-size: 4rem;
+    color: black;
 }
+
+.total:focus {
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    display: none;
+}
+
+  input[type=number] {
+    -moz-appearance: textfield;
+}
+
 
 .botones {
     border: 3px solid transparent;
