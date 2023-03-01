@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
     });*/
 
-    
-
     result.addEventListener("click", () => {
         bandera = false
     })
@@ -58,14 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         boton.addEventListener("touchstart", () => {
             touchEvent = true
+            const intervalId = setInterval(() => {
+                if (touchEvent) {
+                    operar();
+                } else {
+                    clearInterval(intervalId);
+                }
+            }, 100);
         });
-
-        boton.addEventListener("touchend", () => {
-            touchEvent = false
-        });
-
-        while (touchEvent) {
-            operar()
-        }
     });
 })
