@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 200);
         });
 
+        boton.addEventListener("touchmove", () => {
+            touchEvent = false;
+        });
+
         boton.addEventListener("touchend", () => {
             touchEvent = false;
         });
