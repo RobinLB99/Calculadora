@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     result.addEventListener('keydown', event => {
         event.preventDefault();
     });
-    
+
     result.addEventListener("click", () => {
         bandera = false
     })
