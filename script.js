@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
 
-    let click = new Audio("./audio/click-21156.mp3")
+    //let click = new Audio("./audio/click-21156.mp3")
     const regex = /^[0-9]/
 
     let bandera = false;
@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     botones.forEach((boton) => {
         boton.addEventListener("click", () => {
             const valorBoton = boton.id;
+            /*
             click.volume = 0.1
             click.play()
-
+            */
             const evaluar = (id) => {
                 if (id === "=") {
                     result.value = parseFloat(eval(result.value)).toFixed(2);
