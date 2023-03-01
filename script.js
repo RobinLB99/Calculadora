@@ -7,11 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const valorBoton = boton.id;
 
             if (valorBoton === "=") {
-                result.value = eval(result.value);
-                if (result.value.length > 12) {
-                    result.value = result.value.slice(0, 11);
-                }
-                vaciarInput = true;
+                result.value = parseFloat(eval(result.value)).toFixed(3);
             } else if (valorBoton === "removeCaracter") {
                 result.value = result.value.slice(0, -1);
             } else {
