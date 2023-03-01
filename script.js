@@ -2,29 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
 
+    let bandera = false;
     let touchEvent;
 
-    //let click = new Audio("./audio/click-21156.mp3")
-    const regex = /^[0-9]/
-
-    let bandera = false;
-
-    // Desabilita las teclas del teclado
-    /*result.addEventListener('keydown', event => {
-        event.preventDefault();
-    });*/
-
-    result.addEventListener("click", () => {
-        bandera = false
-    })
-
+    // Recorre todos los botones para buscar un evento
     botones.forEach((boton) => {
+
+        // Funcion que ejecuta todo el calculo
         const operar = () => {
+
             const valorBoton = boton.id;
-            /*
-            click.volume = 0.1
-            click.play()
-             */
+
+            // Evalua y devuelve el resultado de la operacion
             const evaluar = (id) => {
                 if (id === "=") {
                     result.value = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1');
@@ -38,8 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
+            // Borra el resultado del input si se presiona un numero
             if (bandera === true) {
-                if (regex.test(valorBoton)) {
+                if (/^[0-9]/.test(valorBoton)) {
                     result.value = ""
                     evaluar(valorBoton)
                 } else {
@@ -50,12 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        // Ejecucion por evento click - Desktop
         boton.addEventListener("click", () => {
             operar()
         });
 
+        // Ejecucion por evento touch - Mobile
         boton.addEventListener("touchstart", () => {
             touchEvent = true
+
+            // Ejecuta la funcion disparada por touchstart en una repeticion de 1s hasta que es interrumpido por otro eventos.
             const intervalId = setInterval(() => {
                 if (touchEvent) {
                     operar();
@@ -65,10 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 200);
         });
 
+        // Se corta la ejecucion al mover el dedo del boton
         boton.addEventListener("touchmove", () => {
             touchEvent = false;
         });
 
+        // Se corta la ejecucion al dejar de precionar el boton
         boton.addEventListener("touchend", () => {
             touchEvent = false;
         });
