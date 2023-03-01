@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let bandera = false;
 
+    // Desabilita las teclas del teclado
+    result.addEventListener('keydown', event => {
+        event.preventDefault();
+    });
+
     result.addEventListener("click", () => {
         bandera = false
     })
@@ -20,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             */
             const evaluar = (id) => {
                 if (id === "=") {
-                    result.value = parseFloat(eval(result.value)).toFixed(2);
+                    result.value = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1');
                     bandera = true
                 } else if (valorBoton === "removeCaracter") {
                     result.value = result.value.slice(0, -1);
