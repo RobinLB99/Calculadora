@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Desabilita el teclado virtual en dispositivos mobiles
-    result.addEventListener('touchstart', event => {
+    result.addEventListener('touchend', event => {
         event.preventDefault();
     });
 
