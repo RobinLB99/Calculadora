@@ -62,7 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     clearInterval(intervalId);
                 }
-            }, 100);
+            }, 200);
+        });
+
+        boton.addEventListener("touchend", () => {
+            touchEvent = false;
         });
     });
 })
