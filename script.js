@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
 
+    const regex = /^[0-9]/
+
     let bandera = false;
 
     result.addEventListener("click", () => {
@@ -18,12 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     bandera = true
                 } else if (valorBoton === "removeCaracter") {
                     result.value = result.value.slice(0, -1);
+                    bandera = false
                 } else {
                     result.value += valorBoton;
+                    bandera = false
                 }
             }
 
-            evaluar(valorBoton)
+            if (bandera === true) {
+                if (regex.test(valorBoton)) {
+                    result.value = ""
+                    evaluar(valorBoton)
+                } else {
+                    evaluar(valorBoton)
+                }
+            } else {
+                evaluar(valorBoton)
+            }
         });
     });
 })
