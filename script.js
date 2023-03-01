@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let bandera = false;
 
     // Desabilita las teclas del teclado
-    result.addEventListener('keydown', event => {
+    /*result.addEventListener('keydown', event => {
         event.preventDefault();
-    });
+    });*/
 
     result.addEventListener("click", () => {
         bandera = false
