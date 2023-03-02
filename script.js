@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const body = document.querySelector('#body');
-    body.setAttribute("style", "display: block;")
+window.addEventListener("load", () => {
+    const calculator = document.getElementById("calculator");
+    calculator.setAttribute("style", "display: grid;")
 
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
