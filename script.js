@@ -16,8 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
             // Evalua y devuelve el resultado de la operacion
             const evaluar = (id) => {
                 if (id === "=") {
-                    result.value = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1');
+                    let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+
+                    if (/^\d+\.\d+$/.test(total)) {
+                        result.value = parseFloat(total).toFixed(8)
+                    } else {
+                        result.value = total
+                    }
+
                     bandera = true
+
                 } else if (valorBoton === "removeCaracter") {
                     result.value = result.value.slice(0, -1);
                      bandera = false
