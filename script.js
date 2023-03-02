@@ -1,6 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     const body = document.querySelector('#body');
     body.setAttribute("style", "display: block;")
+})
+
+document.addEventListener("DOMContentLoaded", () => {
 
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
