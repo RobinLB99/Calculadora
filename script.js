@@ -19,12 +19,20 @@ window.addEventListener("load", () => {
             // Evalua y devuelve el resultado de la operacion
             const evaluar = (id) => {
                 if (id === "=") {
-                    let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                    try {
+                        let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
 
-                    if (/^\d+\.\d+$/.test(total)) {
-                        result.value = parseFloat(total).toFixed(8)
-                    } else {
-                        result.value = total
+                        if (/^\d+\.\d+$/.test(total)) {
+                            result.value = parseFloat(total).toFixed(8)
+                            console.log(result.value)
+                        } else {
+                            result.value = total
+                            console.log(result.value)
+                        }
+
+                    } catch (error) {
+                        console.error("Operacion invalida");
+                        result.value = "err"
                     }
 
                     bandera = true
