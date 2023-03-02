@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
     body.setAttribute("style", "display: block;")
 })
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
