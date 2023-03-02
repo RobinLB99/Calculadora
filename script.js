@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const body = document.querySelector('#body');
+    body.setAttribute("style", "display: block;")
+
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
 
