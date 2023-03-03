@@ -60,14 +60,16 @@ window.addEventListener("load", () => {
                 } else if (id === ".00") {
                     (!result.value) ? result.value = "error" : result.value = parseFloat(result.value).toFixed(2).toString()
                     if (result.value === "NaN") result.value = "error"
-                    //operation.value = result.value
+
                     bandera = true
 
                 } else if (id === "sqrt") {
                     try {
                         let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                        let raiz = Math.sqrt(parseFloat(total)).toString()
                         operation.value = `sqrt(${result.value})`
-                        result.value = Math.sqrt(parseFloat(total)).toString()
+
+                        (raiz === "NaN") ? result.value = "error" : result.value = raiz
 
                     } catch (error) {
                         result.value = "error"
