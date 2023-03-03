@@ -1,12 +1,13 @@
 :root {
+    --color0: #000;
     --color1: #fff;
     --color2: rgb(243, 243, 243);
     --color3: rgb(224, 224, 224);
     --color4: rgb(184, 184, 184);
-    --color5: #a8a8a8;
+    --color5: rgb(168, 168, 168);
     --color6: rgb(3, 106, 196);
     --color7: rgb(4, 115, 206);
-    --color8: #0481e0;
+    --color8: rgb(4, 129, 224);
 }
 
 *, *::after, *::before {
@@ -31,7 +32,7 @@ html {
 
 .calculator {
     background-color: var(--color1);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.415);
+    box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.4);
 
     min-width: 300px;
     max-width: 500px;
@@ -76,12 +77,13 @@ html {
     display: flex;
     align-items: center;
     text-align: right;
+    color: var(--color0);
 }
 .operacion {
     font-size: 25px;
     font-weight: lighter;
 
-    opacity: 45%;
+    opacity: 0.45;
 
     display: flex;
     align-items: flex-end;
@@ -90,21 +92,11 @@ html {
 .total {
     font-weight: bolder;
     font-size: 50px;
-    color: black;
 }
 
 .total:focus {
     outline: none;
 }
-
-input[type=number]::-webkit-inner-spin-button {
-    display: none;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
 
 .botones {
     border: 3px solid transparent;
@@ -154,9 +146,26 @@ input[type=number] {
     font-size: 1.5rem;
 }
 
-#AC {
+#AC, #x2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+#x2 {
+    grid-template-columns: 1.2fr .8fr;
+    gap: 5px;
+}
+
+#x2 .fa-x {
+    text-align: right;
+    position: relative;
+    bottom: -5px;
+}
+
+#x2 .fa-2 {
+    font-size: .8rem;
+    position: relative;
+    top: -5px;
 }
 
 #AC .fa-a {

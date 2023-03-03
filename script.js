@@ -47,7 +47,7 @@ window.addEventListener("load", () => {
                         result.value = ""
                         break;
 
-                    case "^2":
+                    case "x2":
                         try {
                             let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
                             operation.value = `pow(${result.value}, 2)`
