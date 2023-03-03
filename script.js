@@ -69,9 +69,12 @@ window.addEventListener("load", () => {
                         let raiz = Math.sqrt(parseFloat(total)).toString()
                         operation.value = `sqrt(${result.value})`
 
-                        (raiz === "NaN") ? result.value = "error" : result.value = raiz
+                        console.log(raiz); // Es importante - el codigo no funciona correctamente si se quita el esta linea
+
+                        (raiz === "NaN") ? result.value = "Invalido" : result.value = raiz
 
                     } catch (error) {
+                        operation.value = `sqrt(${result.value})`
                         result.value = "error"
                         console.error("Operacion Invalida")
                     }
