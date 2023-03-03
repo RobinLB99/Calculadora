@@ -88,16 +88,14 @@ window.addEventListener("load", () => {
                         bandera = true
                         break;
 
-                    default:
-                        if (valorBoton === "removeCaracter") {
-                            result.value = result.value.slice(0, -1);
-                            bandera = false
-
-                        } else {
-                            result.value += valorBoton;
-                            bandera = false
-                        }
+                    case "removeCaracter":
+                        result.value = result.value.slice(0, -1);
+                        bandera = false
                         break;
+
+                    default:
+                        result.value += id;
+                        bandera = false
                 }
             }
 
