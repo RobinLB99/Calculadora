@@ -64,11 +64,20 @@ html {
 
 .title {
     grid-column: 1/3;
+
     width: fit-content;
     height: 100%;
+
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+.fa-calculator {
+    font-size: 125%;
+
+    position: relative;
+    top: -1px;
 }
 
 #themes {
@@ -92,6 +101,8 @@ html {
     width: 100%;
     height: 100%;
 
+    font-size: 75%;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
@@ -101,11 +112,15 @@ html {
     right: -15px
 }
 
+#themes:hover {
+    color: var(--color6);
+}
+
 .fa-sun, .fa-moon, #fa-minus {
     width: 100%;
     height: 100%;
     display: grid;
-    font-size: 70%;
+    font-size: 80%;
 }
 
 .fa-sun {
@@ -113,8 +128,8 @@ html {
     align-items: center;
 
     position: relative;
-    right: -8px;
-    top: -8px;
+    right: -7px;
+    top: -5px;
 }
 
 #fa-minus {
@@ -128,21 +143,28 @@ html {
     align-items: center;
 
     position: relative;
-    left: -8px;
-    bottom: -8px;
+    left: -7px;
+    bottom: -5px;
 }
 
 #themes_sel {
     border: 1px solid var(--color2);
     border-radius: 4px;
+    padding-left: 5px;
 
     max-width: 150px;
     width: 100%;
-    height: 100%;
+    height: 110%;
+
+    cursor: pointer;
 }
 
 #themes_sel:hover {
     border: 1px solid var(--color3);
+}
+
+#themes_sel:focus {
+    outline: none;
 }
 
 .resultado {
