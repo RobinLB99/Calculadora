@@ -19,75 +19,85 @@ window.addEventListener("load", () => {
 
             // Evalua y devuelve el resultado de la operacion
             const evaluar = (id) => {
-                if (id === "=") {
-                    operation.value = result.value
+                switch (id) {
+                    case "=":
+                        operation.value = result.value
 
-                    try {
-                        let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                        try {
+                            let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
 
-                        if (/^\d+\.\d+$/.test(total)) {
-                            result.value = parseFloat(total)
-                            console.log(result.value)
-                        } else {
-                            result.value = total
-                            console.log(result.value)
+                            if (/^\d+\.\d+$/.test(total)) {
+                                result.value = parseFloat(total)
+                                console.log(result.value)
+                            } else {
+                                result.value = total
+                                console.log(result.value)
+                            }
+
+                        } catch (error) {
+                            console.error("Operacion invalida");
+                            result.value = "error"
                         }
 
-                    } catch (error) {
-                        console.error("Operacion invalida");
-                        result.value = "error"
-                    }
+                        bandera = true
+                        break;
 
-                    bandera = true
+                    case "AC":
+                        operation.value = result.value
+                        result.value = ""
+                        break;
 
-                } else if (id === "AC") {
-                    operation.value = result.value
-                    result.value = ""
+                    case "^2":
+                        try {
+                            let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                            operation.value = `pow(${result.value}, 2)`
+                            result.value = parseFloat(Math.pow(parseFloat(total), 2).toString())
 
-                } else if (id === "^2") {
-                    try {
-                        let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
-                        operation.value = `pow(${result.value}, 2)`
-                        result.value = parseFloat(Math.pow(parseFloat(total), 2).toString())
+                        } catch (error) {
+                            console.error("Operacion Invalida")
+                            result.value = "error"
+                        }
 
-                    } catch (error) {
-                        console.error("Operacion Invalida")
-                        result.value = "error"
-                    }
+                        bandera = true
+                        break;
 
-                    bandera = true
+                    case ".00":
+                        (!result.value) ? result.value = "error" : result.value = parseFloat(result.value).toFixed(2).toString()
 
-                } else if (id === ".00") {
-                    (!result.value) ? result.value = "error" : result.value = parseFloat(result.value).toFixed(2).toString()
-                    if (result.value === "NaN") result.value = "error"
+                        if (result.value === "NaN") result.value = "error"
 
-                    bandera = true
+                        bandera = true
+                        break;
 
-                } else if (id === "sqrt") {
-                    try {
-                        let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
-                        let raiz = Math.sqrt(parseFloat(total)).toString()
-                        operation.value = `sqrt(${result.value})`
+                    case "sqrt":
+                        try {
+                            let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                            let raiz = Math.sqrt(parseFloat(total)).toString()
+                            operation.value = `sqrt(${result.value})`
 
-                        console.log(raiz); // Es importante - el codigo no funciona correctamente si se quita el esta linea
+                            console.log(raiz); // Es importante - el codigo no funciona correctamente si se quita el esta linea
 
-                        (raiz === "NaN") ? result.value = "Invalido" : result.value = raiz
+                            (raiz === "NaN") ? result.value = "Invalido" : result.value = raiz
 
-                    } catch (error) {
-                        operation.value = `sqrt(${result.value})`
-                        result.value = "error"
-                        console.error("Operacion Invalida")
-                    }
+                        } catch (error) {
+                            operation.value = `sqrt(${result.value})`
+                            result.value = "error"
+                            console.error("Operacion Invalida")
+                        }
 
-                    bandera = true
+                        bandera = true
+                        break;
 
-                } else if (valorBoton === "removeCaracter") {
-                    result.value = result.value.slice(0, -1);
-                    bandera = false
+                    default:
+                        if (valorBoton === "removeCaracter") {
+                            result.value = result.value.slice(0, -1);
+                            bandera = false
 
-                } else {
-                    result.value += valorBoton;
-                    bandera = false
+                        } else {
+                            result.value += valorBoton;
+                            bandera = false
+                        }
+                        break;
                 }
             }
 
