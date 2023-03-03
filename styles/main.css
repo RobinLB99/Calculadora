@@ -42,7 +42,7 @@ html {
 
     display: none;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: .3fr 1.35fr repeat(5, 1fr);
+    grid-template-rows: .3fr 1.5fr repeat(6, 1fr);
     gap: 10px;
 
     animation-name: zoomIn;
@@ -64,7 +64,7 @@ html {
     grid-column: -1/1;
 
     display: grid;
-    grid-template-areas: 1fr;
+    grid-template-rows: .6fr 1fr;
 }
 
 .result {
@@ -77,10 +77,8 @@ html {
     align-items: center;
     text-align: right;
 }
-
-/*
 .operacion {
-    font-size: 1.3rem;
+    font-size: 25px;
     font-weight: lighter;
 
     opacity: 45%;
@@ -88,11 +86,10 @@ html {
     display: flex;
     align-items: flex-end;
 }
-*/
 
 .total {
     font-weight: bolder;
-    font-size: 4rem;
+    font-size: 50px;
     color: black;
 }
 
@@ -104,7 +101,7 @@ input[type=number]::-webkit-inner-spin-button {
     display: none;
 }
 
-  input[type=number] {
+input[type=number] {
     -moz-appearance: textfield;
 }
 
@@ -155,4 +152,13 @@ input[type=number]::-webkit-inner-spin-button {
 
 .fa-backspace {
     font-size: 1.5rem;
+}
+
+#AC {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#AC .fa-a {
+    text-align: right;
 }
