@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
 
     const botones = document.querySelectorAll(".botones");
     const result = document.getElementById("result");
+    const operation = document.getElementById("operation");
 
     let bandera = false;
     let touchEvent;
@@ -19,11 +20,13 @@ window.addEventListener("load", () => {
             // Evalua y devuelve el resultado de la operacion
             const evaluar = (id) => {
                 if (id === "=") {
+                    operation.value = result.value
+
                     try {
                         let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
 
                         if (/^\d+\.\d+$/.test(total)) {
-                            result.value = parseFloat(total).toFixed(8)
+                            result.value = parseFloat(total)
                             console.log(result.value)
                         } else {
                             result.value = total
@@ -32,23 +35,61 @@ window.addEventListener("load", () => {
 
                     } catch (error) {
                         console.error("Operacion invalida");
-                        result.value = "err"
+                        result.value = "error"
+                    }
+
+                    bandera = true
+
+                } else if (id === "AC") {
+                    operation.value = result.value
+                    result.value = ""
+
+                } else if (id === "^2") {
+                    try {
+                        let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                        operation.value = `pow(${result.value}, 2)`
+                        result.value = parseFloat(Math.pow(parseFloat(total), 2).toString())
+
+                    } catch (error) {
+                        console.error("Operacion Invalida")
+                        result.value = "error"
+                    }
+
+                    bandera = true
+
+                } else if (id === ".00") {
+                    (!result.value) ? result.value = "error" : result.value = parseFloat(result.value).toFixed(2).toString()
+                    if (result.value === "NaN") result.value = "error"
+                    //operation.value = result.value
+                    bandera = true
+
+                } else if (id === "sqrt") {
+                    try {
+                        let total = eval(result.value).toString().replace(/(\.\d*?[1-9])0+$/g, '$1')
+                        operation.value = `sqrt(${result.value})`
+                        result.value = Math.sqrt(parseFloat(total)).toString()
+
+                    } catch (error) {
+                        result.value = "error"
+                        console.error("Operacion Invalida")
                     }
 
                     bandera = true
 
                 } else if (valorBoton === "removeCaracter") {
                     result.value = result.value.slice(0, -1);
-                     bandera = false
+                    bandera = false
+
                 } else {
                     result.value += valorBoton;
-                     bandera = false
+                    bandera = false
                 }
             }
 
             // Borra el resultado del input si se presiona un numero
             if (bandera === true) {
                 if (/^[0-9]/.test(valorBoton)) {
+                    operation.value = result.value
                     result.value = ""
                     evaluar(valorBoton)
                 } else {
