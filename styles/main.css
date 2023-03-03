@@ -1,12 +1,25 @@
 :root {
+    --color0: #000;
     --color1: #fff;
     --color2: rgb(243, 243, 243);
     --color3: rgb(224, 224, 224);
     --color4: rgb(184, 184, 184);
-    --color5: #a8a8a8;
+    --color5: rgb(168, 168, 168);
     --color6: rgb(3, 106, 196);
     --color7: rgb(4, 115, 206);
-    --color8: #0481e0;
+    --color8: rgb(4, 129, 224);
+}
+
+*.dark {
+    --color0: #fff;
+    --color1: #000;
+    --color2: rgb(59, 59, 59);
+    --color3: rgb(51, 51, 51);
+    --color4: rgb(43, 43, 43);
+    --color5: rgb(32, 32, 32);
+    --color6: rgb(3, 106, 196);
+    --color7: rgb(4, 115, 206);
+    --color8: rgb(4, 129, 224);
 }
 
 *, *::after, *::before {
@@ -31,7 +44,7 @@ html {
 
 .calculator {
     background-color: var(--color1);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.415);
+    box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.4);
 
     min-width: 300px;
     max-width: 500px;
@@ -50,12 +63,108 @@ html {
 }
 
 .title {
-    grid-column: -1/1;
-    width: 100%;
+    grid-column: 1/3;
+
+    width: fit-content;
     height: 100%;
+
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+.fa-calculator {
+    font-size: 125%;
+
+    position: relative;
+    top: -1px;
+}
+
+#themes {
+    grid-column: 3/5;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    align-items: start;
+    justify-content: end;
+    grid-template-columns: .45fr 1fr;
+
+    gap: 10px;
+
+    position: relative;
+    top: -2.5px;
+}
+
+.icon-theme {
+    width: 100%;
+    height: 100%;
+
+    font-size: 75%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    place-items: center;
+
+    position: relative;
+    right: -15px
+}
+
+#themes:hover {
+    color: var(--color6);
+}
+
+.fa-sun, .fa-moon, #fa-minus {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    font-size: 80%;
+}
+
+.fa-sun {
+    justify-content: end;
+    align-items: center;
+
+    position: relative;
+    right: -7px;
+    top: -5px;
+}
+
+#fa-minus {
+    transform: rotate(-45deg);
+    place-items: center;
+    font-size: 150%;
+}
+
+.fa-moon {
+    justify-content: start;
+    align-items: center;
+
+    position: relative;
+    left: -7px;
+    bottom: -5px;
+}
+
+#themes_sel {
+    border: 1px solid var(--color2);
+    border-radius: 4px;
+    padding-left: 5px;
+
+    max-width: 150px;
+    width: 100%;
+    height: 110%;
+
+    cursor: pointer;
+}
+
+#themes_sel:hover {
+    border: 1px solid var(--color3);
+}
+
+#themes_sel:focus {
+    outline: none;
 }
 
 .resultado {
@@ -76,12 +185,13 @@ html {
     display: flex;
     align-items: center;
     text-align: right;
+    color: var(--color0);
 }
 .operacion {
     font-size: 25px;
     font-weight: lighter;
 
-    opacity: 45%;
+    opacity: 0.45;
 
     display: flex;
     align-items: flex-end;
@@ -90,21 +200,11 @@ html {
 .total {
     font-weight: bolder;
     font-size: 50px;
-    color: black;
 }
 
 .total:focus {
     outline: none;
 }
-
-input[type=number]::-webkit-inner-spin-button {
-    display: none;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
 
 .botones {
     border: 3px solid transparent;
@@ -154,9 +254,26 @@ input[type=number] {
     font-size: 1.5rem;
 }
 
-#AC {
+#AC, #x2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+#x2 {
+    grid-template-columns: 1.2fr .8fr;
+    gap: 2.5px;
+}
+
+#x2 .fa-x {
+    text-align: right;
+    position: relative;
+    bottom: -4px;
+}
+
+#x2 .fa-2 {
+    font-size: .8rem;
+    position: relative;
+    top: -4px;
 }
 
 #AC .fa-a {
