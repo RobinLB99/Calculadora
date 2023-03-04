@@ -10,18 +10,31 @@
     <link rel="stylesheet" href="./styles/animations.css">
     <link rel="shortcut icon" href="./img/calculator-icon.png" type="image/png">
     <script src="script.js"></script>
+    <script src="themes.js"></script>
     <title>Calculadora</title>
 </head>
 <body>
     <div class="contenedor">
         <div class="calculator" id="calculator">
             <p class="title"><i class="fa-solid fa-calculator"></i>Calculadora</p>
+            <div id="themes">
+                <p class="icon-theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <i class="fa-solid fa-minus" id="fa-minus"></i>
+                    <i class="fa-solid fa-moon"></i>
+                </p>
+                <select name="themes" id="themes_sel">
+                    <option id="opc" value="auto">Automatico</option>
+                    <option id="opc" value="light">Light</option>
+                    <option id="opc" value="dark">Dark</option>
+                </select>
+            </div>
             <div class="resultado">
                 <input type="text" id="operation" class="result operacion" disabled>
                 <input type="text" id="result" class="result total" value="" disabled>
             </div>
             <div class="botones operador" id=".00"><strong>.00</strong></div>
-            <div class="botones operador" id="^2"><strong>^2</strong></div>
+            <div class="botones operador" id="x2"><i class="fa-solid fa-x"></i><i class="fa-solid fa-2"></i></div>
             <div class="botones operador" id="sqrt"><i class="fa-solid fa-square-root-variable"></i></div>
             <div class="botones operador" id="AC"><i class="fa-solid fa-a"></i><i class="fa-solid fa-c"></i></div>
             <div class="botones operador" id="("><strong>(</strong></div>
